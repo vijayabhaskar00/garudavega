@@ -9,7 +9,7 @@ export default function PickupDropoff() {
         
         <div className="reveal" style={{marginBottom: '60px'}}>
           <div className="chip d1" style={{marginBottom:16, borderColor: 'var(--cyan)', color: 'var(--cyan)'}}>Pricing & Pickup</div>
-          <h1 className="display" style={{fontSize: '56px'}}>SHIP FROM <span className="text-grad">INDIA</span></h1>
+          <h1 className="display" style={{fontSize: 'clamp(40px, 8vw, 64px)'}}>SHIP FROM <span className="text-grad">INDIA</span></h1>
           <p className="text-2" style={{maxWidth:'800px', margin:'16px 0 0', lineHeight: 1.8}}>
             Garudavega provides shipping services worldwide originating from India and from USA. We proudly service over 230+ countries.<br/><br/>
             <span style={{color: 'var(--orange)'}}>To ship from USA – go to <a href="https://my.garudavega.com" target="_blank" rel="noreferrer" style={{color: 'var(--cyan)', textDecoration: 'underline'}}>my.garudavega.com</a></span><br/>
@@ -21,7 +21,7 @@ export default function PickupDropoff() {
            <div className="card-inner">
              
              {/* Form Grid */}
-             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', marginBottom: '40px'}}>
+             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginBottom: '40px'}}>
                 <div>
                    <label className="mono" style={{color: 'var(--text-3)', fontSize: '12px', display: 'block', marginBottom: '12px'}}>DESTINATION COUNTRY</label>
                    <select style={{width: '100%', background: 'var(--navy)', border: '1px solid var(--line)', padding: '16px', borderRadius: '8px', color: '#fff'}}>

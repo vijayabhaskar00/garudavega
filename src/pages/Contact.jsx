@@ -12,7 +12,7 @@ export default function Contact() {
     <div className="contact-page">
       <section className="page-hero" style={{paddingBottom: '80px'}}>
         <div className="container" style={{position:'relative',zIndex:1}}>
-          <h1 className="page-hero__title display" style={{fontSize: '80px', marginBottom: '16px'}}>
+          <h1 className="page-hero__title display" style={{fontSize: 'clamp(48px, 10vw, 80px)', marginBottom: '16px'}}>
             GET IN <span className="text-grad">TOUCH</span>
           </h1>
           <p className="page-hero__subtitle text-2">
@@ -23,7 +23,7 @@ export default function Contact() {
 
       <section className="section" style={{paddingTop: 0}}>
         <div className="container">
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px'}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '80px'}}>
             
             {/* Contact Form */}
             <div className="card reveal">
@@ -36,7 +36,7 @@ export default function Contact() {
                     <label className="mono" style={{fontSize: '12px', color: 'var(--text-3)', display: 'block', marginBottom: '8px'}}>FULL NAME</label>
                     <input required value={form.name} onChange={e=>setForm({...form, name: e.target.value})} style={{width: '100%', background: 'var(--navy)', border: '1px solid var(--line)', padding: '16px', borderRadius: '8px', color: '#fff'}} />
                   </div>
-                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px'}}>
+                  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px'}}>
                     <div>
                       <label className="mono" style={{fontSize: '12px', color: 'var(--text-3)', display: 'block', marginBottom: '8px'}}>EMAIL ADDRESS</label>
                       <input required type="email" value={form.email} onChange={e=>setForm({...form, email: e.target.value})} style={{width: '100%', background: 'var(--navy)', border: '1px solid var(--line)', padding: '16px', borderRadius: '8px', color: '#fff'}} />

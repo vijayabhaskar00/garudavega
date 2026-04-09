@@ -8,7 +8,7 @@ export default function About() {
       <section className="page-hero">
         <div className="container" style={{position:'relative',zIndex:1}}>
           <div className="chip" style={{marginBottom:24, borderColor: 'var(--orange)', color: 'var(--orange)', background: 'transparent'}}>About Garudavega</div>
-          <h1 className="page-hero__title display" style={{fontSize: '80px', letterSpacing:'1px', marginBottom:16}}>
+          <h1 className="page-hero__title display" style={{fontSize: 'clamp(48px, 10vw, 80px)', letterSpacing:'1px', marginBottom:16}}>
             DELIVERING <span className="text-grad">HAPPINESS</span> ACROSS BORDERS
           </h1>
           <p className="page-hero__subtitle text-2" style={{fontSize:'16px'}}>
@@ -20,7 +20,7 @@ export default function About() {
       {/* MISSION / VISION BENTO */}
       <section className="section">
         <div className="container">
-          <div className="bento-grid" style={{gridTemplateColumns: '1fr 1fr', gridAutoRows: 'auto'}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px'}}>
             <div className="b-card card reveal">
               <div className="card-inner">
                 <div className="b-icon" style={{fontSize: '48px'}}>🚀</div>
@@ -43,7 +43,7 @@ export default function About() {
       <section className="section" style={{background:'var(--navy-2)', borderTop:'1px solid var(--line)'}}>
         <div className="container">
           <div className="center reveal" style={{marginBottom: '60px'}}>
-            <h2 className="display" style={{fontSize: '56px'}}>WHY CHOOSE <span className="text-grad">GARUDAVEGA?</span></h2>
+            <h2 className="display" style={{fontSize: 'clamp(36px, 8vw, 56px)'}}>WHY CHOOSE <span className="text-grad">GARUDAVEGA?</span></h2>
           </div>
           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(300px, 1fr))', gap:'24px'}}>
             {[
@@ -69,7 +69,7 @@ export default function About() {
       {/* CTA */}
       <section className="section">
         <div className="container" style={{textAlign:'center'}}>
-          <h2 className="display" style={{fontSize:'48px'}}>READY TO SHIP INTERNATIONALLY?</h2>
+          <h2 className="display" style={{fontSize:'clamp(36px, 8vw, 48px)'}}>READY TO SHIP INTERNATIONALLY?</h2>
           <p className="text-2" style={{maxWidth: '600px', margin: '16px auto 32px'}}>Experience the fastest delivery to the USA, UK, and the rest of the world. Trust Garudavega with your shipments.</p>
           <Link to="/contact" className="btn btn-fill" style={{fontSize: '18px', padding:'16px 40px'}}>FIND A BRANCH</Link>
         </div>

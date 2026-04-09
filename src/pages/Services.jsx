@@ -70,7 +70,7 @@ export default function Services() {
       <section className="page-hero" style={{paddingBottom: '60px'}}>
         <div className="container" style={{position:'relative',zIndex:1}}>
           <div className="chip" style={{marginBottom:24, borderColor: 'var(--cyan)'}}>Premium Courier Solutions</div>
-          <h1 className="page-hero__title display" style={{fontSize: '72px'}}>
+          <h1 className="page-hero__title display" style={{fontSize: 'clamp(48px, 10vw, 72px)'}}>
             WHAT WE <span className="text-grad">DELIVER</span>
           </h1>
           <p className="page-hero__subtitle text-2">
@@ -83,16 +83,16 @@ export default function Services() {
         <div className="container">
           <div style={{display: 'flex', flexDirection: 'column', gap: '80px'}}>
             {services.map((s, i) => (
-              <div key={s.id} className={`card reveal`} style={{display:'flex', flexDirection: i%2===0?'row':'row-reverse', overflow:'hidden', borderColor: `rgba(${s.color==='#FF5500'?'255,85,0':s.color==='#00E5FF'?'0,229,255':s.color==='#FFB347'?'255,179,71':'0,255,200'},0.3)`}}>
+              <div key={s.id} className={`card reveal`} style={{display:'flex', flexWrap:'wrap', flexDirection: i%2===0?'row':'row-reverse', overflow:'hidden', borderColor: `rgba(${s.color==='#FF5500'?'255,85,0':s.color==='#00E5FF'?'0,229,255':s.color==='#FFB347'?'255,179,71':'0,255,200'},0.3)`}}>
                 {/* Visual Half */}
-                <div style={{flex: '1', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--navy)', minHeight: '400px', position: 'relative'}}>
-                   <div style={{fontSize: '120px', position: 'relative', zIndex: 2}}>{s.icon}</div>
+                <div style={{flex: '1 1 300px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--navy)', minHeight: '300px', position: 'relative'}}>
+                   <div style={{fontSize: '100px', position: 'relative', zIndex: 2}}>{s.icon}</div>
                    <div style={{position: 'absolute', width: '200px', height: '200px', background: s.color, filter: 'blur(80px)', opacity: 0.15}}></div>
                 </div>
                 {/* Content Half */}
-                <div style={{flex: '1', padding: '60px'}}>
+                <div style={{flex: '1 1 300px', padding: 'clamp(24px, 5vw, 60px)'}}>
                   <div className="mono" style={{color: s.color, marginBottom: '8px', fontSize: '13px'}}>{s.tagline}</div>
-                  <h2 className="display" style={{fontSize: '48px', marginBottom: '16px'}}>{s.title}</h2>
+                  <h2 className="display" style={{fontSize: 'clamp(32px, 6vw, 48px)', marginBottom: '16px'}}>{s.title}</h2>
                   <p className="text-2" style={{lineHeight: '1.8', marginBottom: '24px'}}>{s.desc}</p>
                   
                   <ul style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
