@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="home2">
       {/* ── HERO ── */}
-      <section className="h2-hero">
+      <section className="h2-hero bg-dots">
         <div className="container">
           <div className="h2-hero-grid">
             <div className="h2-hero-main reveal">
@@ -231,12 +231,15 @@ export default function Home() {
                 { icon: '💰', title: 'Rate Calculator', tag: 'Pricing', to: '/rate' },
                 { icon: '🚫', title: 'Prohibited List', tag: 'Customs', to: '/prohibited' }
               ].map((act, i) => (
-                <Link to={act.to} key={i} className="card" style={{cursor: 'pointer', transition: 'all 0.3s', borderColor: 'var(--line)', display: 'block'}} onMouseEnter={e => e.currentTarget.style.borderColor='var(--orange)'} onMouseLeave={e => e.currentTarget.style.borderColor='var(--line)'}>
-                  <div className="card-inner" style={{padding: '24px'}}>
-                    <div className="mono" style={{color: 'var(--cyan)', fontSize: '11px', marginBottom: '12px'}}>{act.tag}</div>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
+                <Link to={act.to} key={i} className="card" style={{cursor: 'pointer', transition: 'all 0.3s', borderColor: 'var(--line)', display: 'flex', flexDirection: 'column'}} onMouseEnter={e => e.currentTarget.style.borderColor='var(--orange)'} onMouseLeave={e => e.currentTarget.style.borderColor='var(--line)'}>
+                  <div className="card-inner" style={{flex: 1, padding: '24px', display: 'flex', flexDirection: 'column'}}>
+                    <div className="mono" style={{color: 'var(--cyan)', fontSize: '11px', marginBottom: '16px'}}>{act.tag}</div>
+                    <div style={{display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px'}}>
                       <div style={{fontSize: '32px'}}>{act.icon}</div>
-                      <h4 className="display" style={{fontSize: '24px', margin: 0}}>{act.title}</h4>
+                      <h4 className="display" style={{fontSize: '24px', margin: 0, lineHeight: 1.1}}>{act.title}</h4>
+                    </div>
+                    <div style={{marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.05)'}}>
+                      <div className="btn btn-stroke" style={{width: '100%', justifyContent: 'center', fontSize: '12px', padding: '10px', borderColor:'var(--line-2)'}}>CLICK HERE ↗</div>
                     </div>
                   </div>
                 </Link>
@@ -247,7 +250,7 @@ export default function Home() {
       </section>
 
       {/* ── OUR BRANCHES ── */}
-      <section className="section" style={{background: 'var(--navy-2)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'}}>
+      <section className="section bg-grid-glow" style={{background: 'var(--navy-2)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'}}>
         <div className="container">
           <div className="center reveal">
             <h2 className="display" style={{fontSize:'clamp(40px, 6vw, 64px)'}}><span className="text-grad">OUR BRANCHES</span></h2>
