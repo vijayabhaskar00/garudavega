@@ -1,15 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function CurrencyConverter() {
   const [inr, setInr] = useState(1000);
   const [target, setTarget] = useState('USD');
+  const [rates, setRates] = useState({});
+  const [loading, setLoading] = useState(true);
   
-  const rates = {
-    'USD': 0.012,
-    'GBP': 0.0094,
-    'AED': 0.044,
-    'AUD': 0.018
-  }
+  const targetCurrencies = ['USD', 'GBP', 'AED', 'AUD', 'EUR', 'CAD'];
+
+  useEffect(() => {
+    fetch('https://api.exchangerate-api.com/v4/latest/INR')
+      .then(res => res.json())
+      .then(data => {
+        setRates(data.rates);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Failed to fetch live rates:", err);
+        // Fallback rates if API fails
+        setRates({ 'USD': 0.012, 'GBP': 0.0094, 'AED': 0.044, 'AUD': 0.018, 'EUR': 0.011, 'CAD': 0.016 });
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="section" style={{minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -33,14 +45,17 @@ export default function CurrencyConverter() {
                 <div style={{fontSize: '32px', color: 'var(--orange)'}}>↓</div>
 
                 <div>
-                   <div style={{display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '24px'}}>
-                      {Object.keys(rates).map(cur => (
+                   <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', marginBottom: '24px'}}>
+                      {targetCurrencies.map(cur => (
                         <button key={cur} onClick={() => setTarget(cur)} className={`chip ${target===cur?'chip-cyan':''}`} style={{cursor:'pointer'}}>{cur}</button>
                       ))}
                    </div>
                    
                    <div className="display" style={{fontSize: '64px', color: 'var(--cyan)'}}>
-                     {(inr * rates[target]).toFixed(2)} <span style={{fontSize: '32px'}}>{target}</span>
+                     {loading ? '...' : (inr * (rates[target] || 0)).toFixed(2)} <span style={{fontSize: '32px'}}>{target}</span>
+                   </div>
+                   <div className="mono" style={{marginTop: '8px', fontSize: '11px', color: 'var(--text-3)'}}>
+                     {loading ? 'Fetching live market rates...' : `1 INR = ${(rates[target] || 0).toFixed(4)} ${target} (Live Market Rate)`}
                    </div>
                 </div>
              </div>
