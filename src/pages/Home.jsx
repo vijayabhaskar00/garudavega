@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import parcelImg from '../assets/3d-parcel.png'
 import './Home.css'
 
 export default function Home() {
@@ -209,7 +210,7 @@ export default function Home() {
                 padding: '12px'
               }}>
                 <img 
-                  src="/3d-parcel.png" 
+                  src={parcelImg} 
                   alt="3D Floating Parcel Box" 
                   style={{
                     maxWidth: '100%', 
